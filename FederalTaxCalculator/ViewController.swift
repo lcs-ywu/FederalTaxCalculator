@@ -58,8 +58,8 @@ class ViewController: UIViewController {
         case 47631...95259:
             totalTaxValue = 7144.5 + (incomeInputAsDouble - 47630)*20.5/100
         case 95260...147667:
-            totalTaxValue = 7144.5 + 9763.945 + (incomeInputAsDouble - 95269)*26/100
-        case 147668...210,371:
+            totalTaxValue = 7144.5 + 9763.945 + (incomeInputAsDouble - 95259)*26/100
+        case 147668...210371:
             totalTaxValue = 7144.5 + 9763.945 + 13626.08 + (incomeInputAsDouble - 147667)*29/100
         default:
             totalTaxValue = 7144.5 + 9763.945 + 13626.08 + 18184.16 + (incomeInputAsDouble - 210371)*33/100
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         
         let finalTotalTaxValue = String(format: "%.2f", totalTaxValue)
-        let finalEffectiveTaxRate = String(format: "%.2f",effectiveTaxRateOutPut)
+        let finalEffectiveTaxRate = String(format: "%.1f",effectiveTaxRateOutPut)
         
         
         
