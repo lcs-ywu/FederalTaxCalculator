@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         
         var totalTaxValue:Double = 0
         
-        //Use a switch statement to differ different cases
+        //Use a switch statement to differ different cases and calculate
         switch incomeInputAsDouble {
         case 0...47630:
             totalTaxValue = incomeInputAsDouble*15/100
