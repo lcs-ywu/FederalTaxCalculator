@@ -37,14 +37,17 @@ class ViewController: UIViewController {
         // Done editing, so hide the keyboard
         view.endEditing(true)
         
+        //Guard statement agaginst bad user input in names and convert it to string
         guard let nameInputAsString = userNameInput.text,nameInputAsString.count > 0 else{
            taxOutput.text = "Please enter your name."
             return
         }
+        //Guard statement agaginst bad user input in income and convert it to string
         guard let incomeInputAsString = incomeInput.text,incomeInputAsString.count > 0 else {
             taxOutput.text = "Please enter your gross income in dollars."
             return
         }
+        //Convert income strings to integers
         guard let incomeInputAsDouble = Double(incomeInputAsString) else {
             taxOutput.text = "Please enter numeric gross income in dollars."
             return
@@ -52,6 +55,7 @@ class ViewController: UIViewController {
         
         var totalTaxValue:Double = 0
         
+        //Use a switch statement to differ different cases
         switch incomeInputAsDouble {
         case 0...47630:
             totalTaxValue = incomeInputAsDouble*15/100
@@ -65,16 +69,17 @@ class ViewController: UIViewController {
             totalTaxValue = 7144.5 + 9763.945 + 13626.08 + 18184.16 + (incomeInputAsDouble - 210371)*33/100
         }
         
+        //Calculate effective tax rate
         let effectiveTaxRateOutPut = totalTaxValue/incomeInputAsDouble*100
         
-        
+        //Setting decimal places
         let finalTotalTaxValue = String(format: "%.2f", totalTaxValue)
         let finalEffectiveTaxRate = String(format: "%.1f",effectiveTaxRateOutPut)
         
         
         
         
-        
+        //Out put
         taxOutput.text = "\(nameInputAsString) your federal tax owing is $\(finalTotalTaxValue)"
         
         effectiveTaxRate.text = "Effective tax rate is \(finalEffectiveTaxRate)%"
